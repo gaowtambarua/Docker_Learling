@@ -1,0 +1,56 @@
+////////////// image create /////////////
+docker build -t spring-boot-demo .
+
+docker build ./testapp
+docker build -t react-app ./testapp
+docker build -t mywebapp:02 ./testapp
+docker build -t java21-demo .
+
+
+//////////image ki ki ace dekha//////////
+docker image ls
+
+
+///////////// delete  image /////////////
+docker rmi d1f1b7f42aae
+
+////docker run////
+docker run -d --rm --name "mywebapp" -p 3001:3000 mywebapp:01
+docker run -d --rm --name "mywebapp02" -p 3002:3000 mywebapp:02 
+ ///System thake java input jokhon nibe///////// 
+    docker run -it java21-demo
+docker ps
+docker ps -a
+
+
+//////docker hub thake image download///
+docker pull nginx
+docker run -p 8080:80 nginx:latest
+
+
+/////////////////////////push code in docker /////////////////////////////////////
+1.docker login
+2. docker build -t nirobahmed/webapp-demo:01 ./testapp
+3. docker push nirobahmed/webapp-demo:01
+4. docker tag mywebapp:02 nirobahmed/webapp-demo:02  /****** exixting image name change  *****/
+5. dokcer images  or docker image ls
+6. docker push nirobahmed/webapp-demo:02
+7. docker pull nirobahmed/webapp-demo:02
+8. docker run -d --rm --name "webapp-demo" -p 3001:3000 nirobahmed/webapp-demo:02
+
+
+////////////////Docker Volume//////////////
+1. docker build .
+2. docker run -it --rm --name myfilestorejava  0b7d20016ef5
+3. docker run -it --rm --name myfilestorejava -v myvolume:/myapp  0b7d20016ef5         
+4. docker volume --help
+5. docker volume ls
+6. docker volume inspect myvolume
+
+//////////Docker Volume bind mount //////////////
+1. docker build .
+2. docker images
+3. docker run --rm  c3c50613caaf
+1. docker run -v E:\Docker_Class\File_Read_Demo_By_Docker-Volume-bind-mount\servers.txt:/myapp/servers.txt  --rm  c3c50613caaf
+
+
