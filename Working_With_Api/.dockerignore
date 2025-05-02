@@ -1,0 +1,5 @@
+#target/   maven docker er moddhe tulle aiti on kore dite  hobe jate docker target ignore kore,karon maven build hole autometic terget file create hoye jai.
+*.iml
+*.log
+*.idea/
+*.git/

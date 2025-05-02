@@ -51,6 +51,11 @@ docker run -p 8080:80 nginx:latest
 1. docker build .
 2. docker images
 3. docker run --rm  c3c50613caaf
-1. docker run -v E:\Docker_Class\File_Read_Demo_By_Docker-Volume-bind-mount\servers.txt:/myapp/servers.txt  --rm  c3c50613caaf
+4. docker run -v E:\Docker_Class\File_Read_Demo_By_Docker-Volume-bind-mount\servers.txt:/myapp/servers.txt  --rm  c3c50613caaf
+
+///////////////////////Api/////
+docker run --rm  82bc617cefb3  
+1. .\mvnw clean package -DskipTests
+2. docker build -t my-api-app .
 
 
