@@ -1,0 +1,31 @@
+services:
+  mysqldb:
+    image: 'mysql:latest'
+    environment:
+      - MYSQL_ROOT_PASSWORD=Nabela2@4
+      - MYSQL_USER=Nabela
+      - MYSQL_PASSWORD=Nabela2@4
+      - MYSQL_DATABASE=userinfo
+    container_name: mysqldb
+    networks:
+      - my-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping","-h","localhost"]
+      timeout: 20s
+      retries: 10
+
+  myjavaapp:
+    build: ./
+    container_name: myjavaapp
+    networks:
+      - my-network
+    volumes:
+      - ./servers.txt:/app/servers.txt
+    depends_on:
+      mysqldb:
+        condition: service_healthy
+    stdin_open: true
+    tty: true
+
+networks:
+  my-network:

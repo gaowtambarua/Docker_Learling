@@ -53,9 +53,41 @@ docker run -p 8080:80 nginx:latest
 3. docker run --rm  c3c50613caaf
 4. docker run -v E:\Docker_Class\File_Read_Demo_By_Docker-Volume-bind-mount\servers.txt:/myapp/servers.txt  --rm  c3c50613caaf
 
-///////////////////////Api/////
+///////////////////////Api////////////////////////////
 docker run --rm  82bc617cefb3  
 1. .\mvnw clean package -DskipTests
 2. docker build -t my-api-app .
+
+//////////////////////////Mysql//////////////////////////////
+1. 	pull mysql
+2. 	docker run -d --name mysqldb MySQL
+3. 	docker ps
+4. 	docker ps -a
+5. 	docker logs mysqldb
+6. 	docker run -d --env MYSQL_ROOT_PASSWORD=Nabela2@4 --env MYSQL_DATABASE=userinfo --name mysqldb mysql  */ aiti shudu root user er khettre */
+7. 	docker run -d --name mysqldb -e MYSQL_ROOT_PASSWORD=Nabela2@4 -e MYSQL_USER=Nabela -e MYSQL_PASSWORD=Nabela2@4 -e MYSQL_DATABASE=userinfo mysql
+8. 	docker inspect mysqldb
+9. 	docker inspect mysqldb | Select-String "IPAddress"
+10.	docker build -t my-java-app .
+11.     docker images
+12.     docker run -it --rm   my-java-app
+13. 	docker stop mysqldb 
+14.     docker ps
+14.     docker start mysqldb
+
+/////////////////////////////  network   ///////////////////////////////////////////
+1.	docker network create my--net
+2.	docker run -d --name mysqldb -e MYSQL_ROOT_PASSWORD=Nabela2@4 -e MYSQL_USER=Nabela -e MYSQL_PASSWORD=Nabela2@4 -e MYSQL_DATABASE=userinfo --network my--net  MySQL
+3.	docker run -it --rm --network my--net 3576975edffd 
+
+
+///////////////////////////////// Docker Compose ////////////////////////////////////////////////////
+1. docker-compose up  /*কিন্তু terminal-এ তাদের log/console output দেখতে থাকবে*/
+2. docker-compose down
+3. docker-compose up -d /*detach mode deowar karone terminal-এ তাদের log/console output দেখতে থাকবে না */
+4. docker logs  docker_with_sql_database-myjavaapp-1
+5. docker-compose run -d mysqldb
+6. docker-compose run myjavaapp
+7. docker-compose down -v 
 
 
